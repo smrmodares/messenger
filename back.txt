@@ -1,0 +1,42 @@
+import os
+import sqlite
+from flask import Flask, jsonify, render_template, request
+from flask_session import Session
+from flask_socketio import SocketIO, emit
+
+# Configure application
+app = Flask(__name__)
+
+# Ensure templates are auto-reloaded
+app.config["TEMPLATES_AUTO_RELOAD"] = True
+
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+socketio = SocketIO(app)
+
+# Configure session to use filesystem (instead of signed cookies)
+app.config["SESSION_FILE_DIR"] = mkdtemp()
+app.config["SESSION_PERMANENT"] = True
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
+
+# create database
+messenger = sqlite3.connect('a.db')
+db = users.cursor()
+
+#create tables
+db.execute("CREATE TABLE users ('user_id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' TEXT, 'password' INTEGER, 'city' TEXT)")
+db.execute("CREATE TABLE messages ('album_id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' TEXT, 'singer' TEXT, 'genre' TEXT, 'tracks' INTEGER)")
+
+# Save (commit) the changes
+messenger.commit()
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route("/login", methods=["POST"])
+def login():
+    name = request.form.get("name")
+    password = request.form.get("pass")
+    #if exist login else create user then login
+    return render_template("hello.html", name=name, passwprd=password)

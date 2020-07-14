@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block head %}
+   <script src="{{ url_for('static', filename='index.js') }}"></script>
+   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+{% endblock %}
+{% block title %}
+    messaging
+{% endblock %}
+
+{% block main %}
+    <ul id="messages">
+      {% for message in messages %}
+        <li id="{{ message[0]}}">{{ message[1] }} : {{ message[2] }} <button type="button" name="edit" id="e{{ message[0] }}">edit</button> <button type="button" name="delete" id="d{{ message[0] }}">delete</button></li>
+      {% endfor %}
+    </ul>
+    <br>
+    <form action="" method="post" id="form">
+        <div class="form-group">
+          <textarea class="form-control" autofocus id="message-box" name="message" rows="4" cols="50">
+          </textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit" id="send" name="send">Send</button>
+    </form>
+
+{% endblock %}

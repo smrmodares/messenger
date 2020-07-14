@@ -1,0 +1,7 @@
+Flask
+Flask-SocketIO
+Flask-Session
+requests
+
+SQLAlchemy
+werkzeug

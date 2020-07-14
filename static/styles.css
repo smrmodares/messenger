@@ -1,0 +1,53 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+/* colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+
+/* @font-face {
+  font-family: "koodak";
+  src: url("./font/koodak.TTF");
+}
+
+html,
+body,
+header {
+  scroll-behavior: smooth;
+  font-family: "koodak";
+} */
+
+
+ul {
+  list-style-type: none;
+}
