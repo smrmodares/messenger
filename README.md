@@ -1,3 +1,5 @@
-# Project 2
+# Messenger
 
-Web Programming with Python and JavaScript
+A chat web app with Python, Flask, SocketIO, JS, sqlite.
+
+Soppurting broadcast, multycast and unicast messagese.
